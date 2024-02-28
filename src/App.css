@@ -1,0 +1,176 @@
+*{
+  box-sizing: border-box;
+}
+
+.loginBtn{
+  display: flex;
+  justify-content: flex-end;
+  margin: 30px;
+  cursor: pointer;
+}
+
+.logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:10px;
+  cursor: pointer;
+}
+
+.menuList{
+  display: flex;
+  padding:10px;
+  
+}
+
+.menuList li{
+  display: flex;
+  list-style-type: disc;
+  margin: 10px;
+}
+
+
+.searchInput{
+  display:flex;
+  justify-content:flex-end;
+}
+
+.searchInput input{
+  border:none;
+  border-bottom: 3px solid rgb(186, 181, 181);
+  padding-left: 4px;
+  color: rgb(186, 181, 181);
+}
+.menuContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.itemImg{
+  width: 300px;
+  height: 400px;
+  padding:10px;
+}
+
+.itemContainer{
+  width: 600px;
+  cursor: pointer;
+}
+
+.itemTitle{
+  font-weight: 600;
+  padding:10px;
+  white-space: pre-line;
+}
+
+.itemPrice{
+  padding-left:10px;
+}
+
+.itemNew{
+  padding-left:10px;
+  color:red;
+}
+
+
+
+.itemContainer:hover img{
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1); /* 크롬, 사파리 */
+  -moz-transform: scale(1.1);  /* 파이어폭스 */
+  -ms-transform: scale(1.1); /* IE */
+  -o-transform: scale(1.1);  /* 오페라 */
+}
+
+.itemContainer:hover div{
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1); /* 크롬, 사파리 */
+  -moz-transform: scale(1.1);  /* 파이어폭스 */
+  -ms-transform: scale(1.1); /* IE */
+  -o-transform: scale(1.1);  /* 오페라 */
+}
+
+.LoginContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+Form{
+  
+  padding-top: 100px;
+  width: 700px;
+}
+
+.LoginHeader{
+  display: flex;
+  justify-content: center;
+  font-weight: 200;
+}
+
+.LoginBtn{
+  border:1px solid gray;
+  background-color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.LoginBtn:hover{
+  background-color: rgb(202, 199, 199);
+  cursor: pointer;
+}
+
+
+/* 상품 상세페이지 영역 */
+
+.itemDetailContainer {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.itemDetailImg {
+  width: 400px;
+  height: 600px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.itemDetailTitle {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.itemDetailPrice {
+  font-size: 18px;
+
+}
+
+.itemDetailInfoBox{
+  display: flex;
+  flex-direction: column;
+}
+
+.boxContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top:200px;
+}
+
+
+.boxContainer button{
+  width: 150px;
+  padding:5px;
+  background-color: white;
+}
+
+.itemDetailNew{
+  font-size: small;
+  color:red;
+}
