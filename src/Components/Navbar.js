@@ -14,6 +14,7 @@ const Navbar = ({authority}) => {
         nav('/login')
     }
 
+    // 홈으로 이동
     const goHomePage = () =>{
         nav('/');
     }
