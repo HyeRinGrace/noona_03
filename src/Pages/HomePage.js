@@ -2,18 +2,17 @@ import React, { useEffect,useState } from 'react'
 import ProductCard from '../Components/ProductCard';
 import { Container,Row,Col } from 'react-bootstrap';
 import { useSearchParams } from 'react-router-dom';
+import { ProductThunk } from '../Redux/thunk/ProductThunk';
+import {useDispatch,useSelector} from 'react-redux';
 
 const HomePage = () => {
-  const [productList,setProductList] = useState([]);
+  const ProductList = useSelector((state)=>state.ProductList);
   const [query,setQuery] = useSearchParams();
+  const dispatch = useDispatch();
 
-  const getProducts = async () =>{
+  const getProducts = () =>{
     let searchQuery = query.get('q')||" ";
-    let url = `http://localhost:5000/products?q=${searchQuery}`;
-    let response = await fetch(url);
-    let data = await response.json();
-    setProductList(data);
-    
+    dispatch(ProductThunk.getProducts(searchQuery));
   }
 
   useEffect(()=>{
@@ -24,7 +23,7 @@ const HomePage = () => {
     <div>
       <Container>
         <Row>
-          {productList.map((menu)=> (
+          {ProductList?.map((menu)=> (
               <Col key={menu.id} lg={3}><ProductCard item ={menu}/></Col>
           ))}
         </Row>
