@@ -6,7 +6,7 @@ import { ProductThunk } from '../Redux/thunk/ProductThunk';
 import {useDispatch,useSelector} from 'react-redux';
 
 const HomePage = () => {
-  const ProductList = useSelector((state)=>state.ProductList);
+  const ProductList = useSelector((state)=>state.product.ProductList);
   const [query,setQuery] = useSearchParams();
   const dispatch = useDispatch();
 

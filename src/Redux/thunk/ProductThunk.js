@@ -1,5 +1,3 @@
-import { type } from "@testing-library/user-event/dist/type";
-
 function getProducts(searchQuery) {
     // The `extraArgument` is the third arg for thunk functions
     return async(dispatch, getState) => {
