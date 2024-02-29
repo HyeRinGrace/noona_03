@@ -1,6 +1,9 @@
 import React,{useState} from 'react'
 import Form from 'react-bootstrap/Form';
 import '../App.css';
+import {useDispatch,useSelector} from 'react-redux'
+import { LoginThunk } from '../Redux/thunk/LoginThunk';
+import {useNavigate} from 'react-router-dom'
 
 const email = 'kdjsanh@naver.com';
 const password = '1234';
@@ -8,12 +11,16 @@ const password = '1234';
 const LoginPage = ({setAuthority}) => {
   const [inputEmail,setInputEmail] = useState('');
   const [inputPw,setInputPw] = useState('');
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
 
-  const LoginAction = (event)=>{ 
+  const LoginAction = async(event)=>{ 
     event.preventDefault();
+    dispatch(LoginThunk.loginCheck(email,password));
     if(inputEmail == email && inputPw == password){
       setAuthority(true);
+      navigate('/');
     }else{
       setAuthority(false);
     }

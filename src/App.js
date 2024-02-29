@@ -7,6 +7,7 @@ import HomePage from './Pages/HomePage';
 import Navbar from './Components/Navbar';
 import PrivateUserInfo from './Routes/PrivateUserInfo';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {useSelector} from 'react-redux'
 // 1. 로그인, 전체 상품페이지, 상품 상세페이지
 // 1-1. 네비게이션 바 만들어주기
 // 2. 전체 상품페이지에서는 전체 상품을 볼 수 있다. 
@@ -18,6 +19,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // 8. 상품 검색이 가능하다. 
 function App() {
   let [authority, setAuthority] = useState(false);
+
 
   useEffect(()=>{},[authority]);
 
