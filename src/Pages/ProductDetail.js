@@ -8,7 +8,7 @@ const ProductDetail = () => {
   let [detailItem, setDetailItem] = useState({}); // 초기 상태를 빈 객체로 설정
 
   const getProductDetailURL = async () => {
-    let url = `http://localhost:5000/products/${id}`;
+    let url = `http://localhost:5004/products/${id}`;
     let response = await fetch(url);
     let data = await response.json();
     setDetailItem(data);

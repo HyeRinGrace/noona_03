@@ -18,8 +18,8 @@ import {useSelector} from 'react-redux'
 // 7. 로그아웃이 되면 다시 상품상세페이지를 볼 수 없다. 
 // 8. 상품 검색이 가능하다. 
 function App() {
-  let [authority, setAuthority] = useState(false);
-
+  let [authority, setAuthority] = useState(true);
+  
 
   useEffect(()=>{},[authority]);
 

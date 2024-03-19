@@ -26,7 +26,7 @@ const Navbar = ({authority}) => {
         }
     }
 
-    const LoginCheck = (event) =>{
+    const LoginCheck = () =>{
         if(authority == true){
             console.log('aa');
         }
