@@ -5,6 +5,7 @@ function getProducts(searchQuery) {
         let response = await fetch(url);
         let data = await response.json();
         dispatch({type:"PRODUCT_API",payload:{data}})
+
     }
   }
 
