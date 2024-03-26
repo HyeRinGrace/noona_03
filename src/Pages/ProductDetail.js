@@ -37,7 +37,7 @@ const ProductDetail = () => {
             paddingTop:'20px'
           }}>
           <select>
-          {size.map((item,index) => (
+          {size?.map((item,index) => (
               <option value={index}>{item}</option>
           ))}
           </select>
