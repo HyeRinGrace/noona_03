@@ -7,6 +7,9 @@ const ProductDetail = () => {
   let { id } = useParams();
   let [detailItem, setDetailItem] = useState({}); // 초기 상태를 빈 객체로 설정
 
+  let size = [];
+  size = detailItem.size;
+
   const getProductDetailURL = async () => {
     let url = `https://my-json-server.typicode.com/HyeRinGrace/noona_03/products/${id}`;
     let response = await fetch(url);
@@ -30,11 +33,15 @@ const ProductDetail = () => {
           <div className='itemDetailTitle'>{detailItem?.title}</div>
           <div className='itemDetailPrice'>{detailItem?.price}</div>
           <div className='itemDetailNew'>{detailItem?.new == true?'New':''}</div>
-          {/* <select id="size" name ="size">
-            <option value = 's'>{detailItem?.size[0]}</option>
-            <option value = 'm'>{detailItem?.size[1]}</option>
-            <option value = 'l'>{detailItem?.size[2]}</option>
-          </select> */}
+          <div className='Selector' style={{
+            paddingTop:'20px'
+          }}>
+          <select>
+          {size.map((item,index) => (
+              <option value={index}>{item}</option>
+          ))}
+          </select>
+          </div>
           <div className='boxContainer'>
             <button>Buy</button>
             <button>Cart</button>
