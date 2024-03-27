@@ -42,11 +42,11 @@ const LoginPage = ({ setAuthority }) => {
         <h1 className='LoginHeader'>Login</h1>
         <Form.Group className="mb-3" controlId="formGroupEmail">
           <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" onChange={(event) => CheckEmail(event)} value={inputEmail} />
+          <Form.Control type="email" placeholder="test@naver.com" onChange={(event) => CheckEmail(event)} value={inputEmail} />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formGroupPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" onChange={(event) => CheckPw(event)} value={inputPw} />
+          <Form.Control type="password" placeholder="1234" onChange={(event) => CheckPw(event)} value={inputPw} />
         </Form.Group>
         {loginError && <p className="text-danger">존재하지 않는 유저입니다.</p>}
         <button className='LoginBtn' type='submit'>Enter</button>
