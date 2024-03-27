@@ -1,51 +1,57 @@
+// ProductDetail.js
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import '../App.css';
-import {Col,Row} from 'react-bootstrap';
+import { useParams, useNavigate } from 'react-router-dom';
+import { Col, Row } from 'react-bootstrap';
+import { ProductDetailThunk } from '../Redux/thunk/ProductDetailThunk';
+import {useDispatch,useSelector} from 'react-redux';
 
 const ProductDetail = () => {
+  const ProductID = useSelector((state)=>state.productDetail.ProductDetailItem);
+
+  console.log(ProductID);
   let { id } = useParams();
-  let [detailItem, setDetailItem] = useState({}); // 초기 상태를 빈 객체로 설정
+  let [detailItem, setDetailItem] = useState({});
+  let navigate = useNavigate();
+  let dispatch = useDispatch();
 
   let size = [];
   size = detailItem.size;
 
-  const getProductDetailURL = async () => {
-    let url = `https://my-json-server.typicode.com/HyeRinGrace/noona_03/products/${id}`;
-    let response = await fetch(url);
-    let data = await response.json();
-    setDetailItem(data);
-  };
+  const getProductDetailURL = () =>{
+    dispatch(ProductDetailThunk.getID(id));
+  }
+
 
   useEffect(() => {
     getProductDetailURL();
-  }, []); // id가 변경될 때마다 useEffect가 다시 실행되도록 설정
-  
+  }, [id]);
+
+  const MoveToCart = () => {
+    navigate(`/Cart`);
+  };
 
   return (
     <div>
       <div className='itemDetailContainer'>
         <Row>
           <Col>
-            <img className="itemDetailImg"src={detailItem?.img}></img>
+            <img className='itemDetailImg' src={ProductID?.img} alt={ProductID?.title}></img>
           </Col>
           <Col>
-          <div className='itemDetailTitle'>{detailItem?.title}</div>
-          <div className='itemDetailPrice'>{detailItem?.price}</div>
-          <div className='itemDetailNew'>{detailItem?.new == true?'New':''}</div>
-          <div className='Selector' style={{
-            paddingTop:'20px'
-          }}>
-          <select>
-          {size?.map((item,index) => (
-              <option value={index}>{item}</option>
-          ))}
-          </select>
-          </div>
-          <div className='boxContainer'>
-            <button>Buy</button>
-            <button>Cart</button>
-          </div>
+            <div className='itemDetailTitle'>{ProductID?.title}</div>
+            <div className='itemDetailPrice'>{ProductID?.price}</div>
+            <div className='itemDetailNew'>{ProductID?.new ? 'New' : ''}</div>
+            <div className='Selector' style={{ paddingTop: '20px' }}>
+              <select>
+                {ProductID.size?.map((item, index) => (
+                  <option key={index} value={index}>{item}</option>
+                ))}
+              </select>
+            </div>
+            <div className='boxContainer'>
+              <button>Buy</button>
+              <button onClick={MoveToCart}>Cart</button>
+            </div>
           </Col>
         </Row>
       </div>
