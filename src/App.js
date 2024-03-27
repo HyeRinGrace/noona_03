@@ -7,6 +7,7 @@ import HomePage from './Pages/HomePage';
 import Navbar from './Components/Navbar';
 import PrivateUserInfo from './Routes/PrivateUserInfo';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import BuyPage from './Pages/BuyPage';
 // 1. 로그인, 전체 상품페이지, 상품 상세페이지
 // 1-1. 네비게이션 바 만들어주기
 // 2. 전체 상품페이지에서는 전체 상품을 볼 수 있다. 
@@ -17,18 +18,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // 7. 로그아웃이 되면 다시 상품상세페이지를 볼 수 없다. 
 // 8. 상품 검색이 가능하다. 
 function App() {
-  let [authority, setAuthority] = useState(true);
+  let [authority, setAuthority] = useState(false);
   
 
   useEffect(()=>{},[authority]);
 
   return (
     <div>
-      <Navbar authority = {authority}/>
+      <Navbar authority={authority} setAuthority={setAuthority}/>
       <Routes>
         <Route path='/' element ={<HomePage authority = {authority}/>}/>
         <Route path='/login' element ={<LoginPage setAuthority = {setAuthority}/>}/>
         <Route path='/products/:id' element ={<PrivateUserInfo authority = {authority}/>}/>
+        <Route path='/BuyPage' element={<BuyPage/>}/>
       </Routes>
     </div>
   );

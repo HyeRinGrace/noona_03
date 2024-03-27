@@ -8,7 +8,6 @@ import {useDispatch,useSelector} from 'react-redux';
 const ProductDetail = () => {
   const ProductID = useSelector((state)=>state.productDetail.ProductDetailItem);
 
-  console.log(ProductID);
   let { id } = useParams();
   let [detailItem, setDetailItem] = useState({});
   let navigate = useNavigate();
@@ -26,8 +25,8 @@ const ProductDetail = () => {
     getProductDetailURL();
   }, [id]);
 
-  const MoveToCart = () => {
-    navigate(`/Cart`);
+  const MoveToBuyPage = () => {
+    navigate(`/BuyPage`);
   };
 
   return (
@@ -44,13 +43,13 @@ const ProductDetail = () => {
             <div className='Selector' style={{ paddingTop: '20px' }}>
               <select>
                 {ProductID.size?.map((item, index) => (
-                  <option key={index} value={index}>{item}</option>
+                  <option key={index} value={item}>{item}</option>
                 ))}
               </select>
             </div>
             <div className='boxContainer'>
-              <button>Buy</button>
-              <button onClick={MoveToCart}>Cart</button>
+              <button onClick={MoveToBuyPage}>Buy</button>
+              <button>Cart</button>
             </div>
           </Col>
         </Row>
