@@ -1,0 +1,57 @@
+@media (max-width: 768px) {
+    .menuContainer{
+        display: none;
+        margin-right: 30px;
+    }
+    .searchInput{
+        width: 200px;
+        margin: 30px;
+    }
+    .loginBtn{
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .logo{
+        width: 100%;
+    }
+    .mobileMenu{
+        display: flex;
+        justify-content: flex-start;
+    }
+    .MenuSearchContainer{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .Log{
+        display: flex;
+    }
+    .itemContainer{
+        /* display: flex;
+        justify-content: center;
+        align-items: center; */
+        margin: 20px;
+    }
+    .itemTitle{
+        display: none;
+        
+    }
+    .itemPrice{
+        display: none;
+    }
+    .itemNew{
+        display: none;
+    }
+
+
+}
+
+@media only screen and (min-width: 768px) {
+    .mobileMenu {
+        display: none; /* 화면 너비가 768px 이상인 경우 햄버거 메뉴 숨기기 */
+    }
+    .Log{
+        display: flex;
+    }
+}

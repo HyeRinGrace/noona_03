@@ -1,23 +1,31 @@
 // ProductDetail.js
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Col, Row } from 'react-bootstrap';
 import { ProductDetailThunk } from '../Redux/thunk/ProductDetailThunk';
 import {useDispatch,useSelector} from 'react-redux';
+import BuyPage from '../Pages/BuyPage';
 
 const ProductDetail = () => {
   const ProductID = useSelector((state)=>state.productDetail.ProductDetailItem);
 
   let { id } = useParams();
   let [detailItem, setDetailItem] = useState({});
+  let [selectedProduct, setSelectedProduct] =useState({});
   let navigate = useNavigate();
   let dispatch = useDispatch();
+  let ref = useRef('');
 
   let size = [];
   size = detailItem.size;
 
   const getProductDetailURL = () =>{
     dispatch(ProductDetailThunk.getID(id));
+  }
+
+  const Select = (event)=>{
+    const selectValue = event.target.value;
+    setSelectedProduct(selectValue);
   }
 
 
@@ -41,9 +49,10 @@ const ProductDetail = () => {
             <div className='itemDetailPrice'>{ProductID?.price}</div>
             <div className='itemDetailNew'>{ProductID?.new ? 'New' : ''}</div>
             <div className='Selector' style={{ paddingTop: '20px' }}>
-              <select>
+              <select onChange={(event) => Select(event)}>
                 {ProductID.size?.map((item, index) => (
-                  <option key={index} value={item}>{item}</option>
+                  <option key={index} value={item}>{item}
+                  </option>
                 ))}
               </select>
             </div>
@@ -54,7 +63,9 @@ const ProductDetail = () => {
           </Col>
         </Row>
       </div>
+      {selectedProduct && <BuyPage  selectedProduct = {selectedProduct}/>}
     </div>
+    
   );
 };
 
