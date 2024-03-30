@@ -4,20 +4,15 @@
         margin-right: 30px;
     }
     .searchInput{
-        width: 200px;
+        width: 250px;
         margin: 30px;
-    }
-    .loginBtn{
-        width: 90%;
-        display: flex;
-        justify-content: space-between;
     }
     .logo{
         width: 100%;
     }
     .mobileMenu{
         display: flex;
-        justify-content: flex-start;
+        margin: 30px;
     }
     .MenuSearchContainer{
         width: 100%;
