@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Col, Row } from 'react-bootstrap';
-import { ProductDetailThunk } from '../Redux/thunk/ProductDetailThunk';
+import { ProductDetailThunk } from '../Redux/Action/ProductDetailThunk';
 import {useDispatch,useSelector} from 'react-redux';
 import BuyPage from '../Pages/BuyPage';
 

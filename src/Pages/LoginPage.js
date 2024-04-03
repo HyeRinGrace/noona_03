@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import '../App.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { LoginThunk } from '../Redux/thunk/LoginThunk';
+import { LoginThunk } from '../Redux/Action/LoginThunk';
 import { useNavigate } from 'react-router-dom';
 
 const email = "test@naver.com";
