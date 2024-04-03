@@ -1,36 +1,33 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
 import ProductCard from '../Components/ProductCard';
-import { Container,Row,Col } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import { useSearchParams } from 'react-router-dom';
-import { ProductThunk } from '../Redux/Action/ProductThunk';
-import {useDispatch,useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchProducts } from '../Redux/Reducer/reducer';
 
 const HomePage = () => {
-  const ProductList = useSelector((state)=>state.product.ProductList);
-  const [query,setQuery] = useSearchParams();
+  const productList = useSelector((state) => state.products.productList);
+  const [query, setQuery] = useSearchParams();
   const dispatch = useDispatch();
 
-  const getProducts = () =>{
-    let searchQuery = query.get('q')||" ";
-    dispatch(ProductThunk.getProducts(searchQuery));
-  }
-
-  useEffect(()=>{
-    getProducts();
-  },[query])
+  useEffect(() => {
+    const searchQuery = query.get('q') || '';
+    dispatch(fetchProducts(searchQuery));
+  }, [query, dispatch]);
 
   return (
     <div>
       <Container>
         <Row>
-          {ProductList?.map((menu)=> (
-              <Col key={menu.id} lg={3}><ProductCard item ={menu}/></Col>
+          {productList.map((menu) => (
+            <Col key={menu.id} lg={3}>
+              <ProductCard item={menu} />
+            </Col>
           ))}
         </Row>
       </Container>
-      
     </div>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;

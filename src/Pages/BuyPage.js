@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col, Button, Card } from 'react-bootstrap';
 
-const CartPage = ({selectedProduct}) => {
-    const productDetail = useSelector(state => state.productDetail.ProductDetailItem);
+const CartPage = () => {
+    const productDetail = useSelector((state) => state.detailPage.productDetailItem);
     const [cartItems, setCartItems] = useState([]);
 
     useEffect(() => {
