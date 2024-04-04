@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col, Button, Card } from 'react-bootstrap';
 
 const CartPage = () => {
-    const productDetail = useSelector((state) => state.detailPage.productDetailItem);
+    const productDetail = useSelector((state) => state.products.productDetailItem);
     const [cartItems, setCartItems] = useState([]);
 
     useEffect(() => {

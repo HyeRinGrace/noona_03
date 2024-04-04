@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Col, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchProductDetail } from '../Redux/Reducer/DetailPageReducer';
+import { fetchProductDetail } from '../Redux/Slicers/reducer';
 import BuyPage from '../Pages/BuyPage';
 
 const ProductDetail = () => {
@@ -10,7 +10,9 @@ const ProductDetail = () => {
   const [selectedProduct, setSelectedProduct] = useState('');
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const productDetail = useSelector((state) => state.detailPage.productDetailItem);
+  const productDetail = useSelector((state) => state.products.productDetailItem);
+
+  console.log(productDetail);
 
   const getProductDetail = () => {
     dispatch(fetchProductDetail(id));

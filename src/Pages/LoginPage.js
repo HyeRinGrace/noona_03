@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import '../App.css';
 import { useDispatch } from 'react-redux';
-import { loginSuccess, loginFailure } from '../Redux/Reducer/LoginReducer'; // 수정: 올바른 리듀서 파일을 가져옴
+import { loginSuccess, loginFailure } from '../Redux/Slicers/LoginReducer'; // 수정: 올바른 리듀서 파일을 가져옴
 import { useNavigate } from 'react-router-dom';
 
 const LoginPage = ({ setAuthority }) => {
